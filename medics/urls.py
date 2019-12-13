@@ -18,8 +18,8 @@ from django.urls import path
 from django.conf.urls import url
 
 from accounts import views as accounts_views
-from boards import views
-from accounts import views as accounts_views
+from boards import views as board_views
+from accounts import views as views
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
