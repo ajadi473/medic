@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     # 'widget_tweaks',
 
     'accounts',
-    'boards',
+    # 'boards',
 ]
 
 MIDDLEWARE = [
@@ -88,16 +88,17 @@ DATABASES = {
 
 # DATABASES = {
 #         'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'medic',
-#         'USER': 'root',
-#         'PASSWORD': '',
-#         'HOST': 'localhost',
-#         'PORT': '',
-#         'OPTIONS': {
-#         # 'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-#         'read_default_file': '/etc/mysql/my.cnf',
-#         }
+#             'ENGINE': 'django.db.backends.mysql',
+#             'NAME': 'medic',
+#             'USER': 'root',
+#             'PASSWORD': '',
+#             'HOST': '',
+#             'PORT': '',
+#             'OPTIONS': {
+#                 'read_default_file': '/etc/mysql/my.cnf',
+#                 'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+#                 # 'read_default_file': '/etc/mysql/my.cnf',
+#             }
 #     }
 # }
 
