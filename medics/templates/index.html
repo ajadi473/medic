@@ -30,32 +30,26 @@
           <div class="col-lg-6 col-md-12 about-left no-padding">
             <img class="img-fluid" src="static/img/about-img.jpg" alt="">
           </div>
-          <div class="pt-1 col-lg-6 col-md-12 about-right no-padding">
-            <h3>Sign Up </h3>
-            <form class="sign-up-form" id="myForm" action="donate.php">
-                 {% csrf_token %}
-                 <div class="row">
-                   <div class="col-lg-12 d-flex flex-column">
-                     <input name="name" placeholder="Full name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your name'" class="form-control mt-20" required="" type="text" required>
-                   </div>
-                   <div class="col-lg-12 d-flex flex-column">
-                      <input name="email" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" class="form-control mt-20" required="" type="email" required>
-                    </div>
-                    <div class="col-lg-12 d-flex flex-column">
-                        <input name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" class="form-control mt-20" required="" type="password" required>
-                    </div>
-                    <div class="col-lg-12 flex-column">
-                        <textarea rows="4" class="form-control mt-10" name="address" placeholder="Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adress'" required=""></textarea>
-                      </div>
-                         
-
-                  <div class="col-lg-12 d-flex justify-content-center send-btn">
-                    <button class="submit-btn btn btn-outline-primary mt-20 text-uppercase ">Register<span class="fa fa-send-o"></span></button>
-                  </div>
-
-                  <div class="alert-msg"></div>
-                </div>
-              </form>
+            <div class="pt-1 col-lg-6 col-md-12 about-right no-padding">
+              <a href="#sign-up"> 
+                <h2>USERS SIGN UP</h2>
+                <p class="text-white">Need access to on-demand health care
+                  with the best health facility at your finger tips?
+                </p>
+                <p class="text-white">Supply your details to the Electronic Medical Records</p>
+                <a target="_blank" href="http://ehealth4everyone.com/products-and-services/#1441193343680-8afe6f85-6f63">
+                  Read more
+                </a>
+                <hr>
+                <a href="/signup/patients/">
+                <button class="btn btn-outline-primary text-white btn-block">
+                  Get Registered
+                </button>
+                </a>
+                <hr>
+                Something for everyone in the spectrum of care
+                <hr>
+              </a>
             </div>
           </div>
         </div>

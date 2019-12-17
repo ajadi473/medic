@@ -17,15 +17,18 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
 
-from accounts import views as accounts_views
-from boards import views as board_views
+# from accounts import views as accounts_views
+# from boards import views as board_views
 from accounts import views as views
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
-    url(r'^signup/$', accounts_views.signup, name='signup'),
+    url(r'^signup/doctors/$', views.signup_doctors, name='signup doctors'),
+    url(r'^signup/patients/$', views.signup_patients, name='signup patients'),
     # url(r'^boards/(?P<pk>\d+)/$', views.board_topics, name='board_topics'),
     # url(r'^boards/(?P<pk>\d+)/new/$', views.new_topic, name='new_topic'),
     url(r'^admin/', admin.site.urls),
+    url(r'^add_patients', views.AddPatients, name='add_patients'),
+    url(r'^all_patients/', views.AllPatients, name='all_patients'),
     # path('admin/', admin.site.urls),
 ]

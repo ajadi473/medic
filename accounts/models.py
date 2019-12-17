@@ -1,16 +1,29 @@
 from django.db import models
 
 # Create your models here.
-class patientModel(models.Model):
-    # id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='Unique ID for this particular book across whole library')
+class accounts_patientmodel(models.Model):
     email = models.CharField(max_length=100, help_text='Enter your email address')
-    name = models.CharField(max_length=200)
-    password = models.CharField(max_length=200)
-    address = models.CharField(max_length=200)
-
-    def __str__(self):
+    name = models.CharField(max_length=200, null=True, unique=True)
+    password = models.CharField(max_length=200, null=True)
+    address = models.TextField(max_length=800, null=True)
+    dob = models.DateTimeField(null=True)
+    nationality = models.CharField(max_length=200, null=True, unique=True)
+    place_of_birth = models.CharField(max_length=200, null=True, unique=True)
+    diseased = models.CharField(max_length=200, null=True, unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(null=True)
+    
+    def __str___(self):
         return self.name
 
-    def get_absolute_url(self):
-        """Returns the url to access a detail record for this book."""
-        return reverse('book-detail', args=[str(self.id)])
+class accounts_doctorsmodel(models.Model):
+    email = models.CharField(max_length=100, help_text='Enter your email address')
+    name = models.CharField(max_length=200, null=False, unique=True)
+    section = models.CharField(max_length=200, null=False, unique=True)
+    password = models.CharField(max_length=200, null=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(null=True)
+
+
+    def __str___(self):
+        return self.name

@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}Welcome{% endblock %}</title>
+    <title>{% block title %}Welcome to Medic{% endblock %}</title>
     <link href="https://fonts.googleapis.com/css?family=Peralta" rel="stylesheet">
     <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
 
@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker-standalone.css"> 
+    <!-- <link rel="stylesheet" href="{% static 'css/bootstrap-datetimepicker.min.css' %}"> -->
+    
+    
     <!-- <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}"> -->
     <!-- <link rel="stylesheet" href="{% static 'css/nice-select.css' %}"> -->
     <!-- <link rel="stylesheet" href="{% static 'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css' %}"> -->
@@ -25,17 +30,19 @@
       <div class="header-wrap">
         <div class="header-top d-flex justify-content-between align-items-center">
           <div class="logo">
-            <h3>Medic</h3>
-            
+            <h3>eHealth Medic</h3>
+            <small>Health IT for the planet</small>
           </div>
           <div class="main-menubar d-flex align-items-center">
             <nav class=" ">
               <a href="/#home">Home</a>
               
-              <a href="/#sign-up">Register</a>
+              <a href="/#sign-up">EMR for Patients</a>
               
-              <a href="{% url 'signup' %}">
+              
+              <a href="/signup/doctors/">
                 <button class="btn btn-sm btn-outline-primary">
+                  <i class="fa fa-lock"></i>
                   DOCTOR
                 </button>
               </a>
@@ -49,10 +56,10 @@
   <!-- Header -->
 
 
-    <body>
+    <body class="my-5">
     {% block body %}  <!-- HERE -->
-      <div >
-        <ol class="breadcrumb my-4">
+      <div class="my-5" >
+        <ol class="breadcrumb my-5">
           {% block breadcrumb %}
           {% endblock %}
         </ol>
@@ -62,7 +69,7 @@
     {% endblock body %} 
 
     <!-- footer -->
-    <footer class="footer-area section-gap">
+    <footer class="mt-4 footer-area section-gap">
         <div class="container">
           <div class="row footer-bottom d-flex justify-content-end">
             
@@ -82,8 +89,20 @@
     <script type="text/javascript" src="{% static 'js/vendor/jquery-2.2.4.min.js' %}" ></script>
     <script type="text/javascript" src="{% static 'js/main.js' %}" ></script>
     <script type="text/javascript" src="{% static 'js/vendor/bootstrap.min.js' %}" ></script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/js/bootstrap-datetimepicker.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
+    
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker1').datetimepicker();
+        });
+    </script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     
+      
     <script src="js/jquery.ajaxchimp.min.js"></script>
     <script src="js/jquery.nice-select.min.js"></script>
     <script src="js/jquery.sticky.js"></script>
