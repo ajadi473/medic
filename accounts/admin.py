@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import accounts_patientmodel,accounts_doctorsmodel
+from .models import accounts_patientmodel
 
 # Register your models here.
 
@@ -7,5 +7,3 @@ from .models import accounts_patientmodel,accounts_doctorsmodel
 # patients model
 admin.site.register(accounts_patientmodel)
 
-# medical practitioners model
-admin.site.register(accounts_doctorsmodel)

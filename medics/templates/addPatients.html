@@ -11,7 +11,7 @@
   
   <div class="container my-5 w-100 text-center align-content-center justify-content-md-center ">
     <br>
-    <h2 class="my-3">Sign Up </h2>
+    <h2 class="my-3">Sign Up  <strong>/ Users</strong> </h2>
     <hr>
             <form method="POST" class="sign-up-form" id="patient_Form" enctype=“multipart/from-data” action="{% url 'add_patients' %}">
                 {% csrf_token %}
@@ -300,14 +300,22 @@
                           </select>  
 
                       </div>
-                      <div class="col-lg-12 d-flex flex-column">
-                          <input name="disease" placeholder="Any diagnosed disease?" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Any diagnosed disease?'" class="form-control mt-20" required="" type="text" required>
+                      <div class="mt-3 col-lg-12 d-flex flex-column">
+                          <select name="disease" id="disease" class="form-control">
+                              <option value="">Any diagnosed disease?</option>
+                              <option value="Ebola" >Ebola</option>
+                              <option value="Malaria" >Malaria</option>
+                          </select>
+                          
                       </div>
                       
                     </div>
               </div> 
                 <div class="row mt-4 text-center d-flex align-content-center justify-content-center send-btn">
-                    <button type="submit" class="submit-btn w-50 btn btn-block btn-primary mt-20 text-uppercase ">Register<span class="fa fa-send-o"></span></button>
+                    <button type="submit" class="submit-btn w-50 btn btn-lg btn-block btn-primary mt-20 text-uppercase ">
+                        <i class=" text-white fa fa-send-o"></i> &nbsp;
+                        Register
+                    </button>
                   </div>
             </form>
   </div>

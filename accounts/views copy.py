@@ -4,7 +4,7 @@ from django.contrib.auth.models import User, auth
 from django.contrib.auth import login as auth_login
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import accounts_patientmodel
+from .models import accounts_patientmodel, accounts_doctorsmodel
 from .forms import LoginDoctorsForm
 
 # Create your views here.
@@ -45,6 +45,11 @@ def AddPatients(request):
                 )
 
         return redirect('/')
+
+        # accounts_patient = accounts_patientmodel(email=email, name=name,
+        #                          password=password, address = address) 
+
+        # accounts_patient.save()
     
     return render(request, 'index.html')
 
@@ -53,28 +58,34 @@ def AddDoctors(request):
     if request.method == 'POST':
         
         email = request.POST['email']
-        username = request.POST['username']
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
+        name = request.POST['name']
         password = request.POST['password']
         section = request.POST['section']
+        
+        # doctors = accounts_doctorsmodel.objects.create(
+        #             email=email, 
+        #             name=name,
+        #             password=password, 
+        #             section = section,
+        #         )
 
-        if User.objects.filter(username=username).exists():
-            message.info(request, 'Username already exists')
-            return redirect('add_doctors')
-        else:
-            user = User.objects.create_user(
-                username=username,
-                first_name = first_name,
-                last_name = last_name,
-                password = password,
-                email = email,
-            )
+        doctors = accounts_doctorsmodel(
+                    email=email, 
+                    name=name,
+                    password=password, 
+                    section = section,
+                )
 
-            user.save()
-            print ('User created')
-            return redirect('all_patients/')
-  
+        doctors.save()
+
+        
+
+        return redirect('login')
+
+        # accounts_patient = accounts_patientmodel(email=email, name=name,
+        #                          password=password, address = address) 
+
+        # accounts_patient.save()
     
     return render(request, 'index.html')
 
@@ -103,3 +114,17 @@ def LoginDoctors(request):
 
     else:
         return render(request,'index.html')
+
+# def signup_2(request):
+#     if request.method == 'POST':
+#         form = SignUpForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             username = form.cleaned_data.get('username')
+#             raw_password = form.cleaned_data.get('password1')
+#             user = authenticate(username=username, password=raw_password)
+#             login(request, user)
+#             return redirect('home')
+#     else:
+#         form = SignUpForm()
+#     return render(request, 'signup.html', {'form': form})

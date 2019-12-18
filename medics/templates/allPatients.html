@@ -1,16 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2 class=" text-center">Registered <strong>Patients</strong> </h2>
+<br>
+  <h2 class="my-3 text-center">Registered <strong>Patients</strong> </h2>
   <hr>
   <div class="container w-100 text-center align-content-center justify-content-md-center ">
-    <table class="table table-responsive table-active table-bordered table-hover">
+    <table id="patients" class="table table-responsive table-active table-bordered table-hover">
       <thead class=" thead-dark ">
         <tr>
           <th>S/N</th>
           <th>Name</th>
           <th>Email Address</th>
           <th>Address</th>
+          <th>Date of Birth</th>
+          <th>Ailment</th>
           <th>Registered</th>
           <th>Actions</th>
         </tr>
@@ -22,15 +25,14 @@
           <td class="align-middle">{{ val.name }} </td>
           <td class="align-middle">{{ val.email }} </td>
           <td class="align-middle">{{ val.address }} </td>
+          <td class="align-middle">{{ val.dob }} </td>
+          <td class="align-middle">{{ val.diseased }} </td>
           <td class="align-middle">{{ val.created_at }} </td>
           <td class="align-middle">
             <i class="text-dark fa fa-edit px-4"></i>
             <i class="text-dark fa fa-times"></i>
           </td>
         </tr>
-      
-
-
       {%endfor%}
       </tbody>
 

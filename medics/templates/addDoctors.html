@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block breadcrumb %}
+<li class="breadcrumb-item">Home</li>
+<li class="breadcrumb-item active">{{ 'add doctors' }}</li>
+ 
+{% endblock %}
+
+{% block content %}
+  
+  
+  <div class="container my-5 w-100 text-center align-content-center justify-content-md-center ">
+    <br>
+    <h2 class="my-3"><strong> Medical Practitioners</strong>  </h2>
+    <hr>
+            
+                <div class="row">
+                    <div class="col-md-6">
+                      <form method="POST" class="sign-up-form" id="doctors_Form" enctype=“multipart/from-data” action="{% url 'add_doctors' %}">
+                          {% csrf_token %}
+                          <h3 class="pt-3">Sign Up </h3>
+                          <hr>
+                          <div class="col-lg-12 d-flex flex-column">
+                              <input name="username" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" class="form-control mt-20" required="" type="text" required>
+                            </div>
+                          <div class="col-lg-12 d-flex flex-row">
+                            <input name="first_name" placeholder="First name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'First name'" class=" form-control mt-20" required="" type="text" required>
+                            <input name="last_name" placeholder="Last name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last name'" class="mx-2 form-control mt-20" required="" type="text" required>
+                          </div>
+                          <div class="col-lg-12 d-flex flex-column">
+                              <input name="email" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" class="form-control mt-20" required="" type="email" required>
+                          </div>
+                            <div class="col-lg-12 d-flex flex-column">
+                                <input name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" class="form-control mt-20" required="" type="password" required>
+                          </div>
+                                             
+
+                     
+
+                       <div class="alert-msg"></div>
+                          <div class="row mt-4 text-center d-flex align-content-center justify-content-center send-btn">
+                            <button type="submit" class="submit-btn w-50 btn btn-block btn-primary mt-20 text-uppercase "><i class="fa fa-medkit text-white"></i> &nbsp;Register</button>
+                          </div>
+                      </form>
+                    </div>
+                    <div class="col-md-6 alert-secondary" style="border-left: 2px solid green;">
+                        <form method="POST" class="login-up-form" id="doctors_Form" enctype=“multipart/from-data” action="/login_doctors" novalidate>
+                          {% csrf_token %}
+                          <h3 class="pt-3">Log In </h3>
+                          <hr>
+                          <div class="mt-5 col-lg-12 d-flex flex-column">
+                              <input name="username" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" class="form-control mt-20" required="" type="email" required>
+                              {% if field.help_text %}
+                                <small class="form-text text-muted">
+                                  {{ field.help_text|safe }}  
+                                </small>
+                              {% endif %}
+                          </div>
+                          <div class="col-lg-12 d-flex flex-column">
+                              <input name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" class="form-control mt-20" required="" type="password" required>
+                              {% if field.help_text %}
+                                <small class="form-text text-muted">
+                                  {{ field.help_text|safe }}  
+                                </small>
+                              {% endif %}
+                          </div>
+                          <div class="row mt-4 text-center d-flex align-content-center justify-content-center send-btn">
+                              <button type="submit" class="submit-btn w-50 btn btn-block btn-outline-secondary mt-20 text-uppercase ">
+                                <i class="fa fa-lock text-white"></i> &nbsp;Login</button>
+                            </div>
+                        </form>
+                      <!-- <img style="" class="w-100" src="{% static 'img/b3.jpg' %}" alt=""> -->
+                    </div>
+
+              </div> 
+                
+            
+  </div>
+    
+    
+{% endblock %}

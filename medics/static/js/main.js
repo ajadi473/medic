@@ -1,6 +1,12 @@
 
 $(document).ready(function(){
-	"use strict";
+  "use strict";
+  
+  // Datetime picker
+  $('#datetimepicker1').datetimepicker();
+
+  // Datatables
+  $('#patients').DataTable();
 
 	var window_width 	 = $(window).width(),
 	window_height 		 = window.innerHeight,
