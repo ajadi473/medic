@@ -38,10 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # 'widget_tweaks',
-
     'accounts',
-    'boards',
+    
 ]
 
 MIDDLEWARE = [
@@ -52,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'medics.urls'
@@ -84,24 +83,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
-
-# DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.mysql',
-#             'NAME': 'medic',
-#             'USER': 'root',
-#             'PASSWORD': '',
-#             'HOST': '',
-#             'PORT': '',
-#             'OPTIONS': {
-#                 'read_default_file': '/etc/mysql/my.cnf',
-#                 'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-#                 # 'read_default_file': '/etc/mysql/my.cnf',
-#             }
-#     }
-# }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -143,13 +124,15 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
+STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'medics/static'),
-]
+)
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+django_heroku.settings(locals())
 
 LOGOUT_REDIRECT_URL = 'home'
 
