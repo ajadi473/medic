@@ -73,7 +73,7 @@ def AddDoctors(request):
 
             user.save()
             print ('User created')
-            return redirect('all_patients/')
+            return redirect('all_patients')
   
     
     return render(request, 'index.html')
@@ -96,7 +96,7 @@ def LoginDoctors(request):
             return redirect('all_patients')
         else:
             messages.info(request, 'Invalid Credentials')
-            return redirect('home')
+            return redirect('login_doctors')
 
 
         return redirect('all_patients')
