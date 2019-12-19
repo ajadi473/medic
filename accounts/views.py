@@ -57,7 +57,7 @@ def AddDoctors(request):
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         password = request.POST['password']
-        section = request.POST['section']
+        
 
         if User.objects.filter(username=username).exists():
             message.info(request, 'Username already exists')
